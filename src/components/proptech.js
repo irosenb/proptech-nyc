@@ -2,6 +2,7 @@ import { Space, Card } from 'antd';
 import { useEffect, useState } from 'react';
 import Airtable from 'airtable';
 
+console.log(process.env.REACT_APP_AIRTABLE_KEY)
 const base = new Airtable({apiKey: process.env.REACT_APP_AIRTABLE_KEY}).base('appkgFanuGmwzHgbv')
 
 const Proptech = () => {
