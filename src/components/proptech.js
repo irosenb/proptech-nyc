@@ -34,6 +34,7 @@ const Proptech = () => {
 function Event({record}) {
   return (
     <Card title={record.fields.Name}>
+      <p>{record.fields.Date}</p>
     </Card>
   )
 }
