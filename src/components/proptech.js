@@ -37,6 +37,7 @@ function Event({record}) {
     <Card title={record.fields.Name}>
       <p>{record.fields.Date}</p>
       <p>{record.fields.Organizer}</p>
+      
     </Card>
   )
 }
