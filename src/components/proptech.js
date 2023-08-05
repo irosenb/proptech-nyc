@@ -1,4 +1,4 @@
-import { Button, DatePicker } from 'antd';
+import { Space, Card } from 'antd';
 import { useEffect, useState } from 'react';
 import Airtable from 'airtable';
 
@@ -21,10 +21,11 @@ const Proptech = () => {
   return (
     <div className="App">
       <h1>NYC Proptech</h1>
-      <Button size='large'>Press me</Button>
-      {records.map(record => (
-        <Event key={record.id} record={record}/>
-      ))}
+      <Space size={18} direction='vertical'>
+        {records.map(record => (
+          <Event key={record.id} record={record}/>
+        ))}
+      </Space>
       <p></p>
     </div>
   )
@@ -32,9 +33,8 @@ const Proptech = () => {
 
 function Event({record}) {
   return (
-    <div className='record'>
-      <h1>{record.fields.Name}</h1>
-    </div>
+    <Card title={record.fields.Name}>
+    </Card>
   )
 }
 
