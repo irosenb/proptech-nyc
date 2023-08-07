@@ -1,6 +1,7 @@
-import { Space, Card } from 'antd';
+import { Space, Card, Button } from 'antd';
 import { useEffect, useState } from 'react';
 import Airtable from 'airtable';
+import { volcano } from '@ant-design/colors';
 
 console.log(process.env.REACT_APP_AIRTABLE_KEY)
 const base = new Airtable({apiKey: process.env.REACT_APP_AIRTABLE_KEY}).base('appkgFanuGmwzHgbv')
@@ -21,11 +22,13 @@ const Proptech = () => {
 
   return (
     <div className="App">
-      <h1>NYC Proptech</h1>
-      <Space size={18} direction='vertical'>
-        {records.map(record => (
-          <Event key={record.id} record={record}/>
-        ))}
+      <h1>Proptech NYC Events</h1>
+      <Space size='middle' direction='vertical' style={{display: 'flex'}}>
+        {
+          records.map(record => (
+            <Event key={record.id} record={record}/>
+          ))
+        }
       </Space>
       <p></p>
     </div>
@@ -34,12 +37,29 @@ const Proptech = () => {
 
 function Event({record}) {
   return (
-    <Card title={record.fields.Name}>
-      <p>{record.fields.Date}</p>
+    <Card title={record.fields.Name} size='large'>
       <p>{record.fields.Organizer}</p>
-      
+      <p>{record.fields.Location}</p>
+      <p>{record.fields.Description}</p>
+      <p>{formatDate(record.fields.Date)}</p>
+      <p>{record.fields.Time}</p>
+      <Button type='primary'>
+        <a target='_blank' href={record.fields.RSVP}>RSVP</a>
+      </Button>
     </Card>
   )
 }
+
+const formatDate = (dateString) => {
+  const options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  };
+
+  const formattedDate = new Date(dateString).toLocaleDateString(undefined, options);
+
+  return formattedDate;
+};
 
 export default Proptech
