@@ -30,7 +30,7 @@ const Proptech = () => {
           ))
         }
       </Space>
-      <p></p>
+      <p>A project by <a href='https://linkedin.com/in/irosenb'>Isaac Rosenberg</a>.</p>
     </div>
   )
 }
