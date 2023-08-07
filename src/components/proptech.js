@@ -1,7 +1,9 @@
-import { Space, Card, Button } from 'antd';
+import { Space, Card, Button, Typography } from 'antd';
 import { useEffect, useState } from 'react';
 import Airtable from 'airtable';
 import { volcano } from '@ant-design/colors';
+
+const { Text, Link } = Typography 
 
 console.log(process.env.REACT_APP_AIRTABLE_KEY)
 const base = new Airtable({apiKey: process.env.REACT_APP_AIRTABLE_KEY}).base('appkgFanuGmwzHgbv')
@@ -23,14 +25,16 @@ const Proptech = () => {
   return (
     <div className="App">
       <h1>Proptech NYC Events</h1>
-      <Space size='middle' direction='vertical' style={{display: 'flex'}}>
+      <Space size='large' direction='vertical' style={{display: 'flex'}}>
         {
           records.map(record => (
             <Event key={record.id} record={record}/>
           ))
         }
+        <Text style={{padding: '3em'}}>
+          A project by <Link href='https://linkedin.com/in/irosenb'>Isaac Rosenberg</Link>.
+        </Text>
       </Space>
-      <p>A project by <a href='https://linkedin.com/in/irosenb'>Isaac Rosenberg</a>.</p>
     </div>
   )
 }
