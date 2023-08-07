@@ -32,7 +32,7 @@ const Proptech = () => {
           ))
         }
         <Text style={{padding: '3em'}}>
-          A project by <Link href='https://linkedin.com/in/irosenb'>Isaac Rosenberg</Link>.
+          A project by <Link target='_blank' href='https://linkedin.com/in/irosenb'>Isaac Rosenberg</Link>.
         </Text>
       </Space>
     </div>
