@@ -46,14 +46,16 @@ const Proptech = () => {
 function Event({record}) {
   return (
     <Card title={record.fields.Name} size='large'>
-      <p>{record.fields.Organizer}</p>
-      <p>{record.fields.Location}</p>
-      <p>{record.fields.Description}</p>
-      <p>{formatDate(record.fields.Date)}</p>
-      <p>{record.fields.Time}</p>
-      <Button type='primary'>
-        <a target='_blank' href={record.fields.RSVP}>RSVP</a>
-      </Button>
+      <div style={{textAlign: 'left'}}>
+        <p>{record.fields.Organizer}</p>
+        <p>{record.fields.Location}</p>
+        <p>{record.fields.Description}</p>
+        <p>{formatDate(record.fields.Date)}</p>
+        <p>{record.fields.Time}</p>
+        <Button type='primary'>
+          <a target='_blank' href={record.fields.RSVP}>RSVP</a>
+        </Button>
+      </div>
     </Card>
   )
 }
