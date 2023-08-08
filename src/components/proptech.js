@@ -1,4 +1,4 @@
-import { Space, Card, Button, Typography } from 'antd';
+import { Space, Card, Button, Typography, Col, Row } from 'antd';
 import { useEffect, useState } from 'react';
 import Airtable from 'airtable';
 import { volcano } from '@ant-design/colors';
@@ -25,16 +25,20 @@ const Proptech = () => {
   return (
     <div className="App">
       <h1>Proptech NYC Events</h1>
-      <Space size='large' direction='vertical' style={{display: 'flex'}}>
-        {
-          records.map(record => (
-            <Event key={record.id} record={record}/>
-          ))
-        }
-        <Text style={{padding: '3em'}}>
-          A project by <Link target='_blank' href='https://linkedin.com/in/irosenb'>Isaac Rosenberg</Link>.
-        </Text>
-      </Space>
+      <Row justify='center'>
+        <Col span={20}>
+          <Space size='large' direction='vertical' style={{display: 'flex'}}>
+            {
+              records.map(record => (
+                <Event key={record.id} record={record}/>
+              ))
+            }
+            <Text style={{padding: '3em'}}>
+              A project by <Link target='_blank' href='https://linkedin.com/in/irosenb'>Isaac Rosenberg</Link>.
+            </Text>
+          </Space>
+        </Col>
+      </Row>
     </div>
   )
 }
