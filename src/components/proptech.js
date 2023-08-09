@@ -28,11 +28,7 @@ const Proptech = () => {
       <Row justify='center'>
         <Col span={20}>
           <Space size='large' direction='vertical' style={{display: 'flex'}}>
-            {
-              records.map(record => (
-                <Event key={record.id} record={record}/>
-              ))
-            }
+            <Events records={records}/>
             <Text style={{padding: '3em'}}>
               A project by <Link target='_blank' href='https://linkedin.com/in/irosenb'>Isaac Rosenberg</Link>.
             </Text>
@@ -41,6 +37,12 @@ const Proptech = () => {
       </Row>
     </div>
   )
+}
+
+function Events({records}) {
+  return records.map(record => (
+    <Event key={record.id} record={record}/>
+  ))
 }
 
 function Event({record}) {
